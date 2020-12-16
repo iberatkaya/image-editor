@@ -16,6 +16,7 @@ function App() {
   let [newImageLoading, setNewImageLoading] = useState<boolean>();
   let [height, setHeight] = useState<number>();
   let [width, setWidth] = useState<number>();
+  let [blurRadius, setBlurRadius] = useState<number>();
   let [preserveRatio, setPreserveRatio] = useState<boolean>();
   let [grayscale, setGrayscale] = useState<boolean>();
 
@@ -45,9 +46,16 @@ function App() {
     }
   };
 
-  const onPreserveRatioChange = (
-    _: React.ChangeEvent<HTMLInputElement>
-  ) => {
+  const onBlurRadiusChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const num = parseInt(event.target.value);
+    if (!isNaN(num)) {
+      setBlurRadius(parseInt(event.target.value));
+    } else {
+      setBlurRadius(undefined);
+    }
+  };
+
+  const onPreserveRatioChange = (_: React.ChangeEvent<HTMLInputElement>) => {
     setPreserveRatio(preserveRatio === undefined ? true : !preserveRatio);
   };
 
@@ -58,9 +66,7 @@ function App() {
   return (
     <>
       <Navbar bg="dark" variant="dark" sticky="top">
-        <Navbar.Brand>
-          Welcome to Image Editor!
-        </Navbar.Brand>
+        <Navbar.Brand>Welcome to Image Editor!</Navbar.Brand>
       </Navbar>
       <Container
         style={{
@@ -109,6 +115,8 @@ function App() {
                 data.append("height", JSON.stringify(height));
               if (width !== undefined)
                 data.append("width", JSON.stringify(width));
+              if (blurRadius !== undefined)
+                data.append("blurRadius", JSON.stringify(blurRadius));
               if (preserveRatio !== undefined)
                 data.append(
                   "preserveAspectRatio",
@@ -117,7 +125,7 @@ function App() {
 
               setNewImage(undefined);
               setNewImageLoading(true);
-              const res = await fetch("https://ibk-image-editor.herokuapp.com/upload", {
+              const res = await fetch("http://localhost:8080/upload", {
                 method: "POST",
                 body: data,
               });
@@ -177,6 +185,20 @@ function App() {
             />
             <Form.Text className="text-muted">
               Enter new image width. Leave blank to not change it.
+            </Form.Text>
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Blur Radius</Form.Label>
+            <Form.Control
+              value={blurRadius}
+              onChange={onBlurRadiusChange}
+              type="number"
+              placeholder="Enter blur radius"
+              min={0}
+              max={60}
+            />
+            <Form.Text className="text-muted">
+              Enter the Gaussian blur radius. Leave blank to not apply it.
             </Form.Text>
           </Form.Group>
           <Form.Group>
