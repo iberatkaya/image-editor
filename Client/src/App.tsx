@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import {
   Button,
@@ -47,12 +46,12 @@ function App() {
   };
 
   const onPreserveRatioChange = (
-    event: React.ChangeEvent<HTMLInputElement>
+    _: React.ChangeEvent<HTMLInputElement>
   ) => {
     setPreserveRatio(preserveRatio === undefined ? true : !preserveRatio);
   };
 
-  const onGrayscaleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const onGrayscaleChange = (_: React.ChangeEvent<HTMLInputElement>) => {
     setGrayscale(grayscale === undefined ? true : !grayscale);
   };
 
@@ -60,7 +59,7 @@ function App() {
     <>
       <Navbar bg="dark" variant="dark" sticky="top">
         <Navbar.Brand>
-          Welcome to Random Image!
+          Welcome to Image Editor!
         </Navbar.Brand>
       </Navbar>
       <Container
@@ -118,7 +117,7 @@ function App() {
 
               setNewImage(undefined);
               setNewImageLoading(true);
-              const res = await fetch("http://127.0.0.1:8080/upload", {
+              const res = await fetch("https://ibk-image-editor.herokuapp.com/upload", {
                 method: "POST",
                 body: data,
               });
@@ -160,6 +159,7 @@ function App() {
               type="number"
               placeholder="Enter height"
               min={10}
+              max={2000}
             />
             <Form.Text className="text-muted">
               Enter new image height. Leave blank to not change it.
@@ -173,6 +173,7 @@ function App() {
               type="number"
               placeholder="Enter width"
               min={10}
+              max={2000}
             />
             <Form.Text className="text-muted">
               Enter new image width. Leave blank to not change it.
