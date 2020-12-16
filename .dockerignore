@@ -1,0 +1,4 @@
+.build/
+.swiftpm/
+**/node_modules
+Client/
