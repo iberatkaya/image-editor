@@ -36,6 +36,13 @@ func imageController(_ req: Request) -> ImageControllerResponse {
         }
     }
     
+    ///Convert to grayscale
+    if let blurRadius = params.blurRadius {
+        if(blurRadius != 0){
+            image.blur(radius: blurRadius)
+        }
+    }
+    
     ///Resize the image
     image = resizeImg(image: image, width: params.width, height: params.height, preserveAspectRatio: params.preserveAspectRatio)
     
