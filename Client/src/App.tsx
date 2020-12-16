@@ -125,7 +125,7 @@ function App() {
 
               setNewImage(undefined);
               setNewImageLoading(true);
-              const res = await fetch("http://localhost:8080/upload", {
+              const res = await fetch("https://ibk-image-editor.herokuapp.com/upload", {
                 method: "POST",
                 body: data,
               });
