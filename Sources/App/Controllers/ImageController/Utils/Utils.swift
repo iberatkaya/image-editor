@@ -1,6 +1,7 @@
 import Vapor
 import SwiftGD
 
+///Resizes an image
 func resizeImg(image: Image, width: Int?, height: Int?, preserveAspectRatio: Bool?) -> Image {
     var newImage = image
     let aspectRatio: Double = Double(newImage.size.width) / Double(newImage.size.height)
