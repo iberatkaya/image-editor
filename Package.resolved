@@ -56,15 +56,6 @@
         }
       },
       {
-        "package": "SwiftImage",
-        "repositoryURL": "https://github.com/koher/swift-image.git",
-        "state": {
-          "branch": null,
-          "revision": "c61b8cf4613a7fc80d1c2a84231cef2909e837a1",
-          "version": "0.7.1"
-        }
-      },
-      {
         "package": "swift-log",
         "repositoryURL": "https://github.com/apple/swift-log.git",
         "state": {
@@ -125,6 +116,15 @@
           "branch": null,
           "revision": "5a352330c09a323e59ebd99afdf4ca3964c217bc",
           "version": "1.9.1"
+        }
+      },
+      {
+        "package": "SwiftGD",
+        "repositoryURL": "https://github.com/twostraws/SwiftGD.git",
+        "state": {
+          "branch": null,
+          "revision": "1960998971b453101e740f25bc6d9fb01e0ba225",
+          "version": "2.5.0"
         }
       },
       {

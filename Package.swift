@@ -9,14 +9,15 @@ let package = Package(
     dependencies: [
         // 💧 A server-side Swift web framework.
         .package(url: "https://github.com/vapor/vapor.git", from: "4.0.0"),
-        .package(name: "SwiftImage", url: "https://github.com/koher/swift-image.git", .exact("0.7.1"))
+        .package(url: "https://github.com/twostraws/SwiftGD.git", from: "2.0.0")
+
     ],
     targets: [
         .target(
             name: "App",
             dependencies: [
                 .product(name: "Vapor", package: "vapor"),
-                .product(name: "SwiftImage", package: "SwiftImage")
+                .product(name: "SwiftGD", package: "SwiftGD")
             ],
             swiftSettings: [
                 // Enable better optimizations when building in Release configuration. Despite the use of
