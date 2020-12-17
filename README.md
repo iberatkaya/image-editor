@@ -1,6 +1,6 @@
 <h1 align="center">Welcome to Image Editor 👋</h1>
 
-> Image Editor is a simple tool that can resize images to a desired dimensions, can make an image grayscale, and can apply Gaussian blur. It was built with [Vapor](https://vapor.codes) for the Backend as a REST API, and React.js for the Frontend as a Web App.
+> Image Editor is a simple tool that can resize images to desired dimensions, can make images grayscale, and can apply Gaussian blur to images. It was built with [Vapor](https://vapor.codes) for the Backend as a REST API, and React.js for the Frontend as a Web App.
 
 ### 🏠 [Image Editor](https://iberatkaya.github.io/image-editor/)
 
