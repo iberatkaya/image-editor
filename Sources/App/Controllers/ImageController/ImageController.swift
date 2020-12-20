@@ -38,9 +38,13 @@ func imageController(_ req: Request) -> ImageControllerResponse {
     
     ///Convert to grayscale
     if let blurRadius = params.blurRadius {
-        if(blurRadius != 0){
-            image.blur(radius: blurRadius)
+        if(blurRadius < 0){
+            return ImageControllerResponse(code: 500, status: false, message: "Blur radius cannot be negative!")
         }
+        else if(blurRadius > 200){
+            return ImageControllerResponse(code: 500, status: false, message: "Blur radius cannot be larger than 200!")
+        }
+        image.blur(radius: blurRadius)
     }
     
     ///Resize the image

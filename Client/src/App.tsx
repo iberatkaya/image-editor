@@ -195,7 +195,7 @@ function App() {
               type="number"
               placeholder="Enter blur radius"
               min={0}
-              max={60}
+              max={200}
             />
             <Form.Text className="text-muted">
               Enter the Gaussian blur radius. Leave blank to not apply it.
